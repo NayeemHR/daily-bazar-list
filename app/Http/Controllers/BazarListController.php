@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BazarList;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BazarListController extends Controller
@@ -30,8 +31,15 @@ class BazarListController extends Controller
 
     public function show($id)
     {
+        // Find the Bazar List
         $bazarList = BazarList::with('items.product')->findOrFail($id);
-        return view('bazar_lists.show', compact('bazarList'));
+
+        // Fetch all products to display in the dropdown
+        $products = Product::all();
+
+        // Pass the Bazar List and products to the view
+        return view('bazar_lists.show', compact('bazarList', 'products'));
+
     }
 
     public function destroy($id)

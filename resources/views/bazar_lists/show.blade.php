@@ -1,7 +1,18 @@
-@extends('layouts.app')
 
-@section('content')
-<h1>Bazar List #{{ $bazarList->id }}</h1>
+<x-app-layout>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('My Bazar Lists') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <div class="relative overflow-hidden shadow-md rounded-lg mt-6">
+                        <h1>Bazar List #{{ $bazarList->id }}</h1>
 
 <h2>Items</h2>
 <table id="bazar-list-items">
@@ -42,57 +53,24 @@
     </div>
     <button type="submit">Add Item</button>
 </form>
-
-<script>
-    $(document).ready(function() {
-        // Add Item AJAX
-        $('#add-item-form').on('submit', function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: '{{ route("bazar_list_items.store", $bazarList->id) }}',
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    product_id: $('#product_id').val(),
-                    quantity: $('#quantity').val()
-                },
-                success: function(response) {
-                    $('#bazar-list-items tbody').append(`
-                        <tr id="item-${response.id}">
-                            <td>${response.product.name}</td>
-                            <td>${response.quantity}</td>
-                            <td>
-                                <button class="remove-item" data-id="${response.id}" data-list-id="{{ $bazarList->id }}">Remove</button>
-                            </td>
-                        </tr>
-                    `);
-                    $('#add-item-form')[0].reset();
-                },
-                error: function(error) {
-                    alert('Error adding item');
-                }
+<h3>Add Item</h3>
+    <livewire:add-bazar-list-item :bazarListId="$bazarList->id" />
+        <script>
+            document.addEventListener('livewire:load', function () {
+                Livewire.on('itemAdded', () => {
+                    location.reload(); // Reload the page to update the list, or you can add more dynamic updates
+                });
             });
-        });
+        </script>
+        
+</div>
+                   
+</div>
+</div>
+</div>
+</div>
 
-        // Remove Item AJAX
-        $(document).on('click', '.remove-item', function() {
-            var itemId = $(this).data('id');
-            var listId = $(this).data('list-id');
 
-            $.ajax({
-                url: `/bazar_lists/${listId}/items/${itemId}`,
-                type: 'DELETE',
-                data: {
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    $(`#item-${itemId}`).remove();
-                },
-                error: function(error) {
-                    alert('Error removing item');
-                }
-            });
-        });
-    });
-</script>
-@endsection
+
+</x-app-layout>
+

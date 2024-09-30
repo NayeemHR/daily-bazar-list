@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('products', ProductController::class);
 Route::resource('categories', CategoryController::class);
 
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+// Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');

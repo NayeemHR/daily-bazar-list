@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@100..900&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
+        <livewire:styles />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -38,7 +39,7 @@
                 {{ $slot }}
             </main>
         </div>
-        <script>
+        {{-- <script>
             // Ensure jQuery is loaded
             $(document).ready(function() {
                 // Set up the CSRF token for all AJAX requests
@@ -48,6 +49,7 @@
                     }
                 });
             });
-        </script>
+        </script> --}}
+        <livewire:scripts />
     </body>
 </html>
