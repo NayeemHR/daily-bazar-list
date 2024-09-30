@@ -12,10 +12,10 @@
                     <form action="{{ route('categories.update', $category->id) }}" method="POST">
                         @csrf
                         <div>
-                            <label>Name:</label>
-                            <input type="text" name="name" value="{{$category->name}}" required>
+                            <x-form.label>Name</x-form.label>
+                            <x-form.input type="text" name="name" id="name" value="{{$category->name}}" />
                         </div>
-                        <button type="submit">Update Category</button>
+                        <x-form.button>Update</x-form.button>
                         @if ($errors->any())
                             <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:text-red-400" role="alert">
                                 <ul>
