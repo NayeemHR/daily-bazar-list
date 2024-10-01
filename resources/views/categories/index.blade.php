@@ -10,7 +10,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('categories.create') }}" class="rounded-md bg-[#7aa12a] px-3.5 py-2.5  text-sm font-semibold text-white shadow-sm hover:bg-[#88b42f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-[#7aa12a]">Add New Category</a>
+                    <x-form.a href="{{ route('categories.create') }}" > Add New Category </x-a>
                     <div class="relative overflow-hidden shadow-md rounded-lg mt-6">
                         <table class="table-auto w-full text-left">
                             <thead class="uppercase bg-[#7aa12a] text-[#ffffff]" style="background-color: #7aa12a; color: #ffffff;">

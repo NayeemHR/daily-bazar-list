@@ -1,8 +1,8 @@
 <div>
 
-    <input type="text" wire:model.live="name" type="text">
-                    {{$name}}
-    {{-- @if (session()->has('success'))
+    {{-- <input type="text" wire:model.live="name" type="text">
+                    {{$name}} --}}
+    @if (session()->has('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
@@ -31,5 +31,5 @@
         </div>
         
         <button type="submit">Add Item</button>
-    </form> --}}
+    </form>
 </div>

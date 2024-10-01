@@ -16,7 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@100..900&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
-        <livewire:styles />
+        {{-- <livewire:styles /> --}}
+        @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -50,6 +51,7 @@
                 });
             });
         </script> --}}
-        <livewire:scripts />
+        {{-- <livewire:scripts /> --}}
+        @livewireScripts
     </body>
 </html>
