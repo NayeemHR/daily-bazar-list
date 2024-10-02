@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BazarListController;
+use App\Http\Controllers\BazarListItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;

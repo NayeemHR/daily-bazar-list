@@ -50,21 +50,21 @@ class AddBazarListItem extends Component
 
         session()->flash('success', 'Item added successfully');
     }
-    public function removeItem($itemId)
-    {
-        dd($itemId);
-        // $item = BazarListItem::find($itemId);
+    // public function removeItem($itemId)
+    // {
+    //     // dd($itemId);
+    //     $item = BazarListItem::find($itemId);
 
-        // if ($item && $item->bazar_list_id == $this->bazarListId) {
-        //     $item->delete();
+    //     if ($item && $item->bazar_list_id == $this->bazarListId) {
+    //         $item->delete();
 
-        //     // Emit an event to refresh the list in the view
-        //     $this->dispatch('itemRemoved');
-        //     session()->flash('success', 'Item removed successfully');
-        // } else {
-        //     session()->flash('error', 'Unable to remove item');
-        // }
-    }
+    //         // Emit an event to refresh the list in the view
+    //         $this->dispatch('itemRemoved');
+    //         session()->flash('success', 'Item removed successfully');
+    //     } else {
+    //         session()->flash('error', 'Unable to remove item');
+    //     }
+    // }
 
     // public $name = 'Nayeem';
     public function render()
