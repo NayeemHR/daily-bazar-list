@@ -12,11 +12,12 @@
                     <form action="{{ route('bazar_lists.store') }}" method="POST">
                         @csrf
                         <div>
-                            <label for="name">List Name:</label>
-                            <input type="text" id="name" name="name" required>
+                            <x-form.label>Name</x-form.label>
+                            <x-form.input type="text" name="name" id="name" required />
                         </div>
+
+                        <x-form.button>Create</x-form.button>
                 
-                        <button type="submit">Create List</button>
                     </form>
                 </div>
             </div>

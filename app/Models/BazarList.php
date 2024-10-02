@@ -9,7 +9,7 @@ class BazarList extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'status'];
+    protected $fillable = ['user_id', 'name', 'status'];
 
     public function user()
     {

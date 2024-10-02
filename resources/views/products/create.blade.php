@@ -12,11 +12,11 @@
                     <form action="{{ route('products.store') }}" method="POST">
                         @csrf
                         <div>
-                            <label>Name:</label>
-                            <input type="text" name="name" required>
+                            <x-form.label>Name</x-form.label>
+                            <x-form.input type="text" name="name" id="name" required />
                         </div>
                         <div>
-                            <label>Category:</label>
+                            <x-form.label>Category:</x-form.label>
                             <select name="category_id" required>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -24,14 +24,24 @@
                             </select>
                         </div>
                         <div>
-                            <label>Price:</label>
-                            <input type="number" name="price" step="0.01" required>
+                            <x-form.label>Price:</x-form.label>
+                            <x-form.input type="number" name="price" id="price" step="0.01" required />
                         </div>
                         <div>
-                            <label>Description:</label>
-                            <textarea name="description"></textarea>
+                            <x-form.label>Description:</x-form.label>
+                            <x-form.textarea name="description" id="description"></x-form.textarea>
                         </div>
-                        <button type="submit">Save Product</button>
+                        <x-form.button>Add</x-form.button>
+                        @if ($errors->any())
+                        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:text-red-400" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="font-medium">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                        
                     </form>
                 </div>
             </div>

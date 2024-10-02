@@ -22,6 +22,7 @@ class BazarListController extends Controller
     public function store(Request $request)
     {
         $bazarList = BazarList::create([
+            'name' => $request->input('name'),
             'user_id' => auth()->id(),
             'status' => 'pending',
         ]);

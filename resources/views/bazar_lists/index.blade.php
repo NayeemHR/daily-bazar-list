@@ -10,12 +10,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('bazar_lists.create') }}" class="btn btn-primary">Create New Bazar List</a>
+                    <x-form.a href="{{ route('bazar_lists.create') }}" class="btn btn-primary">Create New Bazar List</x-form.a>
+
                     <div class="relative overflow-hidden shadow-md rounded-lg mt-6">
                         <table class="table-auto w-full text-left">
                             <thead class="uppercase bg-[#7aa12a] text-[#ffffff]" style="background-color: #7aa12a; color: #ffffff;">
                                 <tr>
                                     <td class="py-3 border text-center font-bold p-4" >ID</td>
+                                    <td class="py-3 border text-center font-bold p-4" >Name</td>
                                     <td class="py-3 border text-center font-bold p-4" >Status</td>
                                     <td class="py-3 border text-center font-bold p-4" >Actions</td>
                                 </tr>
@@ -25,6 +27,7 @@
                                 @foreach($bazarLists as $list)
                                 <tr class="py-2">
                                     <td class="py-2 border text-center  p-4" >{{ $list->id }}</td>
+                                    <td class="py-2 border text-center  p-4" >{{ $list->name }}</td>
                                     <td class="py-2 border text-center  p-4" >{{ $list->status }}</td>
                                     <td class="py-2 border text-center  p-4 text-[#7aa12a]" >
                                         <a href="{{ route('bazar_lists.show', $list->id) }}">View</a>
